@@ -5,6 +5,8 @@ VisualStudioVersion = 17.2.32602.215
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StaminaHelper", "StaminaHelper\StaminaHelper.csproj", "{8A5C9AC8-25C0-47C8-94C9-9E153F0C1F91}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CleanFarm", "CleanFarm\CleanFarm.csproj", "{FEEE5134-3A70-4E99-A96C-AF5B5D879E3D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{8A5C9AC8-25C0-47C8-94C9-9E153F0C1F91}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8A5C9AC8-25C0-47C8-94C9-9E153F0C1F91}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8A5C9AC8-25C0-47C8-94C9-9E153F0C1F91}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FEEE5134-3A70-4E99-A96C-AF5B5D879E3D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FEEE5134-3A70-4E99-A96C-AF5B5D879E3D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FEEE5134-3A70-4E99-A96C-AF5B5D879E3D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FEEE5134-3A70-4E99-A96C-AF5B5D879E3D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

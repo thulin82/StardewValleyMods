@@ -1,0 +1,10 @@
+{
+  "Name": "CleanFarm",
+  "Author": "thulin82",
+  "Version": "1.0.0",
+  "Description": "",
+  "UniqueID": "thulin82.CleanFarm",
+  "EntryDll": "CleanFarm.dll",
+  "MinimumApiVersion": "3.0.0",
+  "UpdateKeys": []
+}
