@@ -1,0 +1,10 @@
+{
+  "Name": "StaminaHelper",
+  "Author": "thulin82",
+  "Version": "1.0.0",
+  "Description": "F10 displays information about stamina/healt in SMAPI Log, F11 increses your Stamina",
+  "UniqueID": "thulin82.StaminaHelper",
+  "EntryDll": "StaminaHelper.dll",
+  "MinimumApiVersion": "3.0.0",
+  "UpdateKeys": []
+}
