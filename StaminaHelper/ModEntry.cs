@@ -42,6 +42,19 @@ namespace StaminaHelper
             // ignore if player hasn't loaded a save yet
             if (!Context.IsWorldReady)
                 return;
+
+            if (e.Button == SButton.F10)
+            {
+                Monitor.Log("Current MaxHealth is " + Game1.player.maxHealth, LogLevel.Info);
+                Monitor.Log("Current MaxStamina is " + Game1.player.MaxStamina, LogLevel.Info);
+                Monitor.Log("Current Health is " + Game1.player.health, LogLevel.Info);
+                Monitor.Log("Current Stamina is " + Game1.player.Stamina, LogLevel.Info);
+            }
+
+            if (e.Button == SButton.F11)
+            {
+                Game1.player.Stamina += Config.StaminaIncrease;
+            }
         }
     }
 }
