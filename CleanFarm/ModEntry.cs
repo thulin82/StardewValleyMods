@@ -36,7 +36,28 @@ namespace CleanFarm
         /// <param name="e">The event data</param>
         private void GameLoop_DayStarted(object sender, DayStartedEventArgs e)
         {
-
+            foreach (var loc in Game1.locations)
+            {
+                if (loc.NameOrUniqueName.Equals("Farm"))
+                {
+                    Monitor.Log($"Found farm", LogLevel.Info);
+                    foreach (var kvp in loc.Objects.Pairs)
+                    {
+                        if (kvp.Value.Name.Equals("Weeds"))
+                        {
+                            loc.Objects.Remove(kvp.Key);
+                        }
+                        if (kvp.Value.Name.Equals("Stone"))
+                        {
+                            loc.Objects.Remove(kvp.Key);
+                        }
+                        if (kvp.Value.Name.Equals("Twig"))
+                        {
+                            loc.Objects.Remove(kvp.Key);
+                        }
+                    }
+                }
+            }
         }
     }
 }
