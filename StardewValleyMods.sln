@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StaminaHelper", "StaminaHel
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CleanFarm", "CleanFarm\CleanFarm.csproj", "{FEEE5134-3A70-4E99-A96C-AF5B5D879E3D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InfoMail", "InfoMail\InfoMail.csproj", "{5A1A010D-5C03-4CFB-930A-38082A2D2F44}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{FEEE5134-3A70-4E99-A96C-AF5B5D879E3D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FEEE5134-3A70-4E99-A96C-AF5B5D879E3D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FEEE5134-3A70-4E99-A96C-AF5B5D879E3D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5A1A010D-5C03-4CFB-930A-38082A2D2F44}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5A1A010D-5C03-4CFB-930A-38082A2D2F44}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5A1A010D-5C03-4CFB-930A-38082A2D2F44}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5A1A010D-5C03-4CFB-930A-38082A2D2F44}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
