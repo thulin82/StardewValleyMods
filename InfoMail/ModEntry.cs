@@ -9,10 +9,10 @@ public class CropNotifierMod : Mod
 {
     public override void Entry(IModHelper helper)
     {
-        helper.Events.GameLoop.DayStarted += OnDayStarted;
+        helper.Events.GameLoop.DayStarted += GameLoop_DayStarted;
     }
 
-    private void OnDayStarted(object sender, DayStartedEventArgs e)
+    private void GameLoop_DayStarted(object sender, DayStartedEventArgs e)
     {
         StringBuilder letter = new StringBuilder("Dear Farmer,\n\n");
 
@@ -34,7 +34,7 @@ public class CropNotifierMod : Mod
             return false;
 
         var cropsNeedWatering = location.terrainFeatures.Values.OfType<HoeDirt>()
-            .Where(hd => hd.crop != null && !hd.crop.dead && !hd.state.Value).Any();
+            .Where(hd => hd.crop != null && !hd.crop.dead.Value && hd.state.Value == 0).Any();
         var cropsReadyToHarvest = location.terrainFeatures.Values.OfType<HoeDirt>()
             .Where(hd => hd.crop != null && hd.crop.currentPhase.Value >= hd.crop.phaseDays.Count - 1).Any();
 
@@ -45,7 +45,7 @@ public class CropNotifierMod : Mod
                 letter.Append("Some of your crops need watering.\n");
             if (cropsReadyToHarvest)
                 letter.Append("Some of your crops are ready to harvest.\n");
-            letter.Append("\n");
+            letter.Append('\n');
 
             return true;
         }

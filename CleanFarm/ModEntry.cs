@@ -1,6 +1,7 @@
 ﻿using StardewModdingAPI;
 using StardewModdingAPI.Events;
 using StardewValley;
+using System.Linq;
 
 namespace CleanFarm
 {
@@ -36,28 +37,13 @@ namespace CleanFarm
         /// <param name="e">The event data</param>
         private void GameLoop_DayStarted(object sender, DayStartedEventArgs e)
         {
-            foreach (var loc in Game1.locations)
-            {
-                if (loc.NameOrUniqueName.Equals("Farm"))
-                {
-                    Monitor.Log($"Found farm", LogLevel.Info);
-                    foreach (var kvp in loc.Objects.Pairs)
-                    {
-                        if (kvp.Value.Name.Equals("Weeds"))
-                        {
-                            loc.Objects.Remove(kvp.Key);
-                        }
-                        if (kvp.Value.Name.Equals("Stone"))
-                        {
-                            loc.Objects.Remove(kvp.Key);
-                        }
-                        if (kvp.Value.Name.Equals("Twig"))
-                        {
-                            loc.Objects.Remove(kvp.Key);
-                        }
-                    }
-                }
-            }
+            Game1.locations.Where(loc => loc.NameOrUniqueName.Equals("Farm")).ToList()
+                           .ForEach(loc => loc.Objects.Pairs.Where(kvp => 
+                               kvp.Value.Name.Equals("Weeds") || 
+                               kvp.Value.Name.Equals("Stone") || 
+                               kvp.Value.Name.Equals("Twig"))
+                           .ToList()
+                           .ForEach(kvp => loc.Objects.Remove(kvp.Key)));   
         }
     }
 }
