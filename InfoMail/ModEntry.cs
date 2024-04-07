@@ -53,12 +53,8 @@ namespace InfoMail
             var cropsReadyToHarvest = location.terrainFeatures.Values.OfType<HoeDirt>()
                 .Where(hd => hd.crop != null && hd.crop.currentPhase.Value >= hd.crop.phaseDays.Count - 1).Any();
 
-            if (cropsNeedWatering || cropsReadyToHarvest)
-            {
-                return true;
-            }
+            return cropsNeedWatering || cropsReadyToHarvest;
 
-            return false;
         }
     }
 }
