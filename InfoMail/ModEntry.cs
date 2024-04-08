@@ -1,4 +1,4 @@
-﻿using StardewModdingAPI;
+using StardewModdingAPI;
 using StardewModdingAPI.Events;
 using StardewValley;
 using StardewValley.TerrainFeatures;
@@ -41,6 +41,16 @@ namespace InfoMail
             return CheckLocationForCrops(Game1.getFarm(), "Farm") ||
                    CheckLocationForCrops(Game1.getLocationFromName("Greenhouse"), "Greenhouse") ||
                    CheckLocationForCrops(Game1.getLocationFromName("IslandWest"), "Ginger Island");
+}
+
+        private bool GingerIslandUnlocked()
+        {
+            return Game1.player.mailReceived.Contains("willyBoatFixed");
+        }
+
+        private bool GreenhouseUnlocked()
+        {
+            return Game1.player.mailReceived.Contains("ccPantry");
         }
 
         private bool CheckLocationForCrops(GameLocation location, string locationName)
