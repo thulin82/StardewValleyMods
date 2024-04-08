@@ -1,4 +1,4 @@
-using StardewModdingAPI;
+﻿using StardewModdingAPI;
 using StardewModdingAPI.Events;
 using StardewValley;
 using StardewValley.TerrainFeatures;
@@ -34,14 +34,26 @@ namespace InfoMail
             {
                 Game1.mailbox.Add("cropNotifier");
             }
+            Helper.GameContent.InvalidateCache("Data/Mail");
         }
 
         private bool HasCrops()
         {
-            return CheckLocationForCrops(Game1.getFarm(), "Farm") ||
-                   CheckLocationForCrops(Game1.getLocationFromName("Greenhouse"), "Greenhouse") ||
-                   CheckLocationForCrops(Game1.getLocationFromName("IslandWest"), "Ginger Island");
-}
+            var greenHouseHasCrops = false;
+            var gingerIslandHasCrops = false;
+            var farmHasCrops = CheckLocationForCrops(Game1.getFarm(), "Farm");
+
+            if (GreenhouseUnlocked())
+            {
+                greenHouseHasCrops = CheckLocationForCrops(Game1.getLocationFromName("Greenhouse"), "Greenhouse");
+            }
+
+            if (GingerIslandUnlocked())
+            {
+                gingerIslandHasCrops = CheckLocationForCrops(Game1.getLocationFromName("IslandWest"), "Ginger Island");
+            }
+            return farmHasCrops || greenHouseHasCrops || gingerIslandHasCrops;
+        }
 
         private bool GingerIslandUnlocked()
         {
