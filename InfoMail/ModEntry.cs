@@ -29,7 +29,7 @@ namespace InfoMail
             }
         }
 
-        private string GenerateCropNotifierMessage()
+        private static string GenerateCropNotifierMessage()
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("Dear @,^");
@@ -68,12 +68,12 @@ namespace InfoMail
             return farmHasCrops || greenHouseHasCrops || gingerIslandHasCrops;
         }
 
-        private bool GingerIslandUnlocked()
+        private static bool GingerIslandUnlocked()
         {
             return Game1.player.mailReceived.Contains("willyBoatFixed");
         }
 
-        private bool GreenhouseUnlocked()
+        private static bool GreenhouseUnlocked()
         {
             return Game1.player.mailReceived.Contains("ccPantry");
         }
