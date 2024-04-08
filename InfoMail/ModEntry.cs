@@ -2,6 +2,7 @@
 using StardewModdingAPI.Events;
 using StardewValley;
 using StardewValley.TerrainFeatures;
+using System.Text;
 
 namespace InfoMail
 {
@@ -22,10 +23,22 @@ namespace InfoMail
                     e.Edit(asset =>
                     {
                         var editor = asset.AsDictionary<string, string>();
-                        editor.Data["cropNotifier"] = $"Dear @^^Some of your crops need watering.^Some of your crops are ready for harvest^^Yours,^Crop Notifier^^PS. Today is {Game1.stats.DaysPlayed} day";
+                        editor.Data["cropNotifier"] = GenerateCropNotifierMessage();
                     });
                 }
             }
+        }
+
+        private string GenerateCropNotifierMessage()
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.Append("Dear @,^");
+            sb.Append("Some of your crops need watering.^");
+            sb.Append("Some of your crops are ready for harvest.^^");
+            sb.Append("Yours,^");
+            sb.Append("Crop Notifier^^");
+            sb.Append($"PS. Today is {Game1.stats.DaysPlayed} day");
+            return sb.ToString();
         }
 
         private void GameLoop_DayStarted(object sender, DayStartedEventArgs e)
