@@ -2,7 +2,6 @@
 using StardewModdingAPI.Events;
 using StardewValley;
 using StardewValley.TerrainFeatures;
-using System.Text;
 
 namespace InfoMail
 {
@@ -23,22 +22,10 @@ namespace InfoMail
                     e.Edit(asset =>
                     {
                         var editor = asset.AsDictionary<string, string>();
-                        editor.Data["cropNotifier"] = GenerateCropNotifierMessage();
+                        editor.Data["cropNotifier"] = ModHelper.GenerateCropNotifierMessage();
                     });
                 }
             }
-        }
-
-        private static string GenerateCropNotifierMessage()
-        {
-            StringBuilder sb = new StringBuilder();
-            sb.Append("Dear @,^");
-            sb.Append("Some of your crops need watering.^");
-            sb.Append("Some of your crops are ready for harvest.^^");
-            sb.Append("Yours,^");
-            sb.Append("Crop Notifier^^");
-            sb.Append($"PS. Today is {Game1.stats.DaysPlayed} day");
-            return sb.ToString();
         }
 
         private void GameLoop_DayStarted(object sender, DayStartedEventArgs e)
@@ -56,26 +43,16 @@ namespace InfoMail
             var gingerIslandHasCrops = false;
             var farmHasCrops = CheckLocationForCrops(Game1.getFarm(), "Farm");
 
-            if (GreenhouseUnlocked())
+            if (ModHelper.GreenhouseUnlocked())
             {
                 greenHouseHasCrops = CheckLocationForCrops(Game1.getLocationFromName("Greenhouse"), "Greenhouse");
             }
 
-            if (GingerIslandUnlocked())
+            if (ModHelper.GingerIslandUnlocked())
             {
                 gingerIslandHasCrops = CheckLocationForCrops(Game1.getLocationFromName("IslandWest"), "Ginger Island");
             }
             return farmHasCrops || greenHouseHasCrops || gingerIslandHasCrops;
-        }
-
-        private static bool GingerIslandUnlocked()
-        {
-            return Game1.player.mailReceived.Contains("willyBoatFixed");
-        }
-
-        private static bool GreenhouseUnlocked()
-        {
-            return Game1.player.mailReceived.Contains("ccPantry");
         }
 
         private bool CheckLocationForCrops(GameLocation location, string locationName)
