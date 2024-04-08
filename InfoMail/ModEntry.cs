@@ -5,7 +5,7 @@ using StardewValley.TerrainFeatures;
 
 namespace InfoMail
 {
-    public class CropNotifierMod : Mod
+    public class ModEntry : Mod
     {
         public override void Entry(IModHelper helper)
         {
